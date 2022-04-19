@@ -178,7 +178,7 @@ Name                                                   | Type    | Length       
 [Color](#color)                                        | String  | <span class="mono">100</span>  | No<b><sup>3</sup></b>| `Black`
 [Description](#description)                            | String  | <span class="mono">1000</span> | No<b><sup>4</sup></b>| `SAMSUNG Galaxy A70 as a phablet features 6.7 inch display that affords you a vivid and different visual experience. 4 cameras, 32.0MP + 5.0MP + 8.0MP rear camera + 32.0MP front camera, you can enjoy images with 1080 x 2400 high resolution. It comes with most of the features we've come to expect from a phablet, including 6GB RAM 128GB ROM storage equipped with Android Snapdragon 675 and 4500mAh big capacity battery that you can play games faster.`
 [Quantity](#quantity)                                  | Integer | <span class="mono">8</span>    | No | `10`
-[Size Variations](#size-variation-attributes)          | Embedded XML Element | <span class="mono">-</span> | No<b><sup>5</sup></b> | `<variations><variation>...</variation><variation>...</variation></variations>`
+[Size Variations](#size-variation-attributes)          | Embedded XML Element | <span class="mono">-</span> | No<b><sup>5</sup></b> | `<variations>`<br />&nbsp;&nbsp;`<variation>...</variation>`<br />&nbsp;&nbsp;`<variation>...</variation>`<br />`</variations>`
 
 <small><b><sup>1</sup></b> Required by all fashion items with sizes, additional images</small><br />
 <small><b><sup>2</sup></b> Required by all shops that use weight in shipping cost rules</small><br />
@@ -601,14 +601,14 @@ For example: If there are 10 available pieces of Medium size, 15 of Large and 5 
 
 Size variations is an enhancement to the current XML feed, that introduces new nodes (children)
 that include the information of size variations nested to the parent product.
-The parent product should be exactly the same with the current XML specification (including
+For the time being, the parent product should be exactly the same as the current XML specification (including
 all fields, even those that are size variation specific e.g. quantity).
 
 The table below summarizes the size variation attributes recognized by
 <%= settings.site_name.capitalize %>:
 
 <div class="alert alert-danger">
-  <p>Currently, size variations can only be used in products in which size is a required field.</p>
+  <p>Currently, size variations can only be used in products that have size as a required field.</p>
 </div>
 
 <div class="alert alert-danger">
@@ -643,7 +643,7 @@ a size variation's lifecycle and cannot be reused in other variations**.
 case the size variation will be updated only the first time it's encountered in the
 data feed.
 
-> In case your e-commerce application supports more than one languages your
+> In case your e-commerce application supports more than one languages, your
 data feed should only include definitions in the English language to avoid
 duplication.
 
@@ -656,7 +656,7 @@ duplication.
 
 #### Variation Availability
 
-This size's variation shipping availability as used throughout your shop.
+This size variation's shipping availability as used throughout your shop.
 
 <%= settings.site_name.capitalize %> uses a fixed set of availability
 descriptions that will be crosslinked to the ones provided in your feed.
